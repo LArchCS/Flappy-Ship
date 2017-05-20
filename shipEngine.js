@@ -166,18 +166,15 @@ function keyBoardControl() {
     key0();
   });
 }
-function key37() {
-  key[37] = true;
-}
-function key38() {
-  key[38] = true;
-}
-function key39() {
-  key[39] = true;
-}
-function key40() {
-  key[40] = true;
-}
+
+function key37() {key[37] = true; }
+
+function key38() {key[38] = true; }
+
+function key39() {key[39] = true; }
+
+function key40() {key[40] = true; }
+
 function key0() {
   for (var i in key) {
     key[i] = false;
