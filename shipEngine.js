@@ -19,9 +19,6 @@ function startGame() {
   lgSound = new sound("./data/lostgame.mp3");
   bgMusic.play();
   myGameArea.start();
-  // 什么时候带 ()   什么时候不带。 update 带 var 就会报错
-  // interval1 带 var 就会报错
-  //为什么一建立就会自动播放了
   update = setInterval(updateGameArea, 20);
   setInterval(keyBoardControl(), 20);
 }
