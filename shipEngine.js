@@ -200,7 +200,7 @@ function everyinterval(n) {
 function addObstacles() {
   var x, height, gap, minHeight, maxHeight, minGap, maxGap;
   var inte = 45 + Math.abs(Math.floor(Math.random() * 20));
-  if (frameNo == 1 || everyinterval(inte)) {
+  if (everyinterval(inte) || frameNo >= 300) {
     frameNo = 1;
     x = myGameArea.canvas.width;
     minHeight = 20;
