@@ -1,17 +1,17 @@
-let speed = 1;
-let obstacleSpeed = 3;
-let bgSpeed = 0.2;
-let gravity = 0.05;
-let gravitySpeed = 0;
-let frameNo = 0;
-let time = 1;
-let myObstacles = [];
-let key = [];
-let myGamePiece;
-let myBackground;
-let bgMusic;
-let lgSound;
-let update;
+var speed = 1;
+var obstacleSpeed = 3;
+var bgSpeed = 0.2;
+var gravity = 0.05;
+var gravitySpeed = 0;
+var frameNo = 0;
+var time = 1;
+var myObstacles = [];
+var key = [];
+var myGamePiece;
+var myBackground;
+var bgMusic;
+var lgSound;
+var update;
 
 function startGame() {
     myGamePiece = new Component(50, 10, "./data/spaceShip.png", 0, 0, "image");
