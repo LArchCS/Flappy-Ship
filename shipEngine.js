@@ -43,7 +43,7 @@ function updateGameArea() {
 }
 
 // an object for myGameArea
-let myGameArea = {
+var myGameArea = {
     canvas: document.createElement("canvas"),
     start : function() {
         this.canvas.width = 480;
