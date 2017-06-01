@@ -22,8 +22,8 @@ function startGame() {
     lgSound = new Sound("./data/lostgame.mp3");
     bgMusic.play();
     myGameArea.start();
-    update = setInterval(updateGameArea, 20);  // 这里加 () 就会失败
-    setInterval(keyBoardControl(), 20);  // 这里加了 () 依然可以run 
+    update = setInterval(updateGameArea, 20);
+    setInterval(keyBoardControl, 20);
 }
 
 function updateGameArea() {
