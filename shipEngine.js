@@ -1,3 +1,4 @@
+var difficulty = 0.4   // 0 <= difficulty <= 1
 var speed = 1;
 var obstacleSpeed = 3;
 var bgSpeed = 0.2;
@@ -13,6 +14,7 @@ var bgMusic;
 var lgSound;
 var update;
 
+
 function startGame() {
     myGamePiece = new Component(50, 10, "./data/spaceShip.png", 0, 0, "image");
     myBackground = new Component(656, 270, "./data/space.png", 0, 0, "background");
@@ -21,7 +23,7 @@ function startGame() {
     bgMusic.play();
     myGameArea.start();
     update = setInterval(updateGameArea, 20);
-    setInterval(keyBoardControl, 20);
+    setInterval(keyBoardControl(), 20);
 }
 
 function updateGameArea() {
@@ -105,9 +107,7 @@ function Component(width, height, color, x, y, type) {
             ctx.strokeRect(this.x, this.y, this.width, this.height);
             ctx.fillStyle = "rgba(0,0,0,0.2)";
             ctx.fillRect(this.x, this.y, this.width, this.height);
-            if (this.x <= 0) {  // delete out of range obstacle
-                myObstacles.shift();
-            }
+            (this.x <= 0) && (myObstacles.shift());  // delete out of range obstacle
         }
     };
     this.crashWith = function(otherobj) {
@@ -153,10 +153,9 @@ function moveMyPiece() {
     } else {
         gravity = 0.05;
     }
-    if (x === false){myGamePiece.speedX = 0 }
-    if (y === false){myGamePiece.speedY = 0 }
-    if (x || y) {myGamePiece.image.src = "./data/spaceShip_fire.png";}
-    else {myGamePiece.image.src = "./data/spaceShip.png";}
+    (x === false) && (myGamePiece.speedX = 0);
+    (y === false) && (myGamePiece.speedY = 0);
+    myGamePiece.image.src = (x || y) ? "./data/spaceShip_fire.png" : "./data/spaceShip.png";
 }
 
 function keyBoardControl() {
@@ -198,7 +197,7 @@ function lostGame() {
 }
 
 function everyinterval(n) {
-    return frameNo % n === 0;
+    return frameNo % n <= 1.5 * difficulty;
 }
 
 function addObstacles() {
